@@ -4,8 +4,28 @@ body {
     text-align: center;
     font-family: "Montserrat", sans-serif;
     justify-content: center;
+    --grey: invert(38%) sepia(0%) saturate(67%) hue-rotate(163deg) brightness(97%) contrast(92%);
+    --blurple: invert(32%) sepia(64%) saturate(2020%) hue-rotate(222deg) brightness(101%) contrast(90%);
 }
 
 .image {
     transform: rotate(-30deg);
+}
+
+.icon {
+    width: 70px;
+    padding: 5px;
+}
+
+.icon:hover {
+    /* filter: invert(21%) sepia(12%) saturate(0%) hue-rotate(289deg) brightness(102%) contrast(90%); */
+    filter: var(--grey)
+}
+
+#discord {
+    filter: var(--blurple)
+}
+
+#discord:hover {
+    filter: var(--grey)
 }
