@@ -1,0 +1,284 @@
+@import 'tailwindcss';
+
+@tailwind utilities;
+
+
+@layer utilities {
+  .animate-ping-once {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) 1;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+::selection {
+  background-color: #47a3f3;
+  color: #503a3a;
+}
+
+:root {
+  --sh-class: #2d5e9d;
+  --sh-identifier: #354150;
+  --sh-sign: #8996a3;
+  --sh-string: #007f7a;
+  --sh-keyword: #e02518;
+  --sh-comment: #a19595;
+  --sh-jsxliterals: #6266d1;
+  --sh-property: #e25a1c;
+  --sh-entity: #e25a1c;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+[data-theme="light"] {
+  --text-50: #f0f2f4;
+  --text-100: #e1e6ea;
+  --text-200: #c4ccd4;
+  --text-300: #a6b3bf;
+  --text-400: #8999a9;
+  --text-500: #6b7f94;
+  --text-600: #566676;
+  --text-700: #404c59;
+  --text-800: #2b333b;
+  --text-900: #15191e;
+  --text-950: #0b0d0f;
+
+  --background-50: #eef1f6;
+  --background-100: #dde4ee;
+  --background-200: #bbc9dd;
+  --background-300: #99adcc;
+  --background-400: #7792bb;
+  --background-500: #5577aa;
+  --background-600: #445f88;
+  --background-700: #334766;
+  --background-800: #223044;
+  --background-900: #111822;
+  --background-950: #090c11;
+
+  --primary-50: #eff2f6;
+  --primary-100: #dee5ed;
+  --primary-200: #bdcbdb;
+  --primary-300: #9cb1c9;
+  --primary-400: #7b97b7;
+  --primary-500: #5b7da4;
+  --primary-600: #486484;
+  --primary-700: #364b63;
+  --primary-800: #243242;
+  --primary-900: #121921;
+  --primary-950: #090d10;
+
+  --secondary-50: #eff2f6;
+  --secondary-100: #dfe4ec;
+  --secondary-200: #becada;
+  --secondary-300: #9eafc7;
+  --secondary-400: #7d94b5;
+  --secondary-500: #5d7aa2;
+  --secondary-600: #4a6182;
+  --secondary-700: #384961;
+  --secondary-800: #253141;
+  --secondary-900: #131820;
+  --secondary-950: #090c10;
+
+  --accent-50: #eef3f7;
+  --accent-100: #dde8ee;
+  --accent-200: #bad1de;
+  --accent-300: #98bacd;
+  --accent-400: #75a3bd;
+  --accent-500: #538bac;
+  --accent-600: #42708a;
+  --accent-700: #325467;
+  --accent-800: #213845;
+  --accent-900: #111c22;
+  --accent-950: #080e11;
+
+}
+
+[data-theme="dark"] {
+  --text-50: #0b0d0f;
+  --text-100: #15191e;
+  --text-200: #2b333b;
+  --text-300: #404c59;
+  --text-400: #566676;
+  --text-500: #6b7f94;
+  --text-600: #8999a9;
+  --text-700: #a6b3bf;
+  --text-800: #c4ccd4;
+  --text-900: #e1e6ea;
+  --text-950: #f0f2f4;
+
+  --background-50: #090c11;
+  --background-100: #111822;
+  --background-200: #223044;
+  --background-300: #334766;
+  --background-400: #445f88;
+  --background-500: #5577aa;
+  --background-600: #7792bb;
+  --background-700: #99adcc;
+  --background-800: #bbc9dd;
+  --background-900: #dde4ee;
+  --background-950: #eef1f6;
+
+  --primary-50: #090c11;
+  --primary-100: #121921;
+  --primary-200: #233243;
+  --primary-300: #354b64;
+  --primary-400: #466486;
+  --primary-500: #587da7;
+  --primary-600: #7997b9;
+  --primary-700: #9bb1ca;
+  --primary-800: #bccbdc;
+  --primary-900: #dee5ed;
+  --primary-950: #eef2f6;
+
+  --secondary-50: #090c10;
+  --secondary-100: #131920;
+  --secondary-200: #263240;
+  --secondary-300: #394b60;
+  --secondary-400: #4b6381;
+  --secondary-500: #5e7ca1;
+  --secondary-600: #7e96b4;
+  --secondary-700: #9fb1c6;
+  --secondary-800: #bfcbd9;
+  --secondary-900: #dfe5ec;
+  --secondary-950: #eff2f6;
+
+  --accent-50: #080e11;
+  --accent-100: #111c22;
+  --accent-200: #213845;
+  --accent-300: #325467;
+  --accent-400: #42708a;
+  --accent-500: #538bac;
+  --accent-600: #75a3bd;
+  --accent-700: #98bacd;
+  --accent-800: #bad1de;
+  --accent-900: #dde8ee;
+  --accent-950: #eef3f7;
+
+}
+
+html {
+  min-width: 360px;
+}
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+}
+
+.prose .anchor:after {
+  @apply text-neutral-300 dark:text-neutral-700;
+  content: '#';
+}
+
+.prose *:hover>.anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+}
+
+.prose code {
+  @apply px-1 py-0.5 rounded-lg;
+}
+
+.prose pre code {
+  @apply p-0;
+  border: initial;
+  line-height: 1.5;
+}
+
+.prose code span {
+  @apply font-medium;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0;
+}
+
+.prose p {
+  @apply my-4 text-neutral-800 dark:text-neutral-200;
+}
+
+.prose h1 {
+  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+}
+
+.prose h2 {
+  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+}
+
+.prose h3 {
+  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+}
+
+.prose h4 {
+  @apply text-lg font-medium tracking-tight mt-6 mb-2;
+}
+
+.prose strong {
+  @apply font-medium;
+}
+
+.prose ul {
+  @apply list-disc pl-6;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
+
+.prose> :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type='text'],
+input[type='email'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.title {
+  text-wrap: balance;
+}

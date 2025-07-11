@@ -1,0 +1,37 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+      
+permissions:
+  contents: write
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+
+    - name: setup bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: install packages
+      run: bun install
+
+    - name: build
+      run: bun run build
+
+    # - name: export
+    #   run: bun run export
+
+    - name: PUBLISHHHHHHHH
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out
