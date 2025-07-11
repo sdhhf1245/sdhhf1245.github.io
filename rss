@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <rss version="2.0">
+    <channel>
+        <title>sdhhf</title>
+        <link>https://sdhhf1245.github.io/</link>
+        <description>we are so back.</description>
+        <item>
+          <title>Bites: A Discord Gambling Bot</title>
+          <link>https://sdhhf1245.github.io//blog/bites</link>
+          <description>bites is a fully featured discord gambling bot offering games like mines, plinko, blackjack, slots, and crash.</description>
+          <pubDate>Thu, 26 Jun 2025 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+  </rss>
