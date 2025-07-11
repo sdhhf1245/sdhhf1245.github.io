@@ -82,6 +82,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://va.vercel-scripts.com" />
         <link rel="preconnect" href="https://media.discordapp.net" />
         <link rel="dns-prefetch" href="https://dcdn.dstn.to" />
+        <meta property="og:image" content="https://dcdn.dstn.to/avatars/1059614915456938084?size=1024" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta name="theme-color" content="#2c2d30"/>
       </head>
       <body className="antialiased max-w-7xl mx-6 mt-8 lg:mx-auto relative">
         <Suspense fallback={null}>
