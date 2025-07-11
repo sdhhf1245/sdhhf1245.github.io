@@ -37,10 +37,14 @@ export const metadata: Metadata = {
     default: 'sdhhf',
     template: '%s | sdhhf',
   },
-  description: 'this is my portfolio',
+  description: "sdhhf 😋",
+  creator: 'sdhhf',
+  authors: [{ name: 'sdhhf' }],
+  applicationName: 'sdhhfWeb',
+  keywords: ['Next.js', 'React', 'JavaScript', 'GameHacking', 'sdhhf', 'Roblox', 'Typeracer', 'Monkeytype'],
   openGraph: {
     title: 'sdhhf',
-    description: 'this is my portfolio',
+    description: "sdhhf 😋",
     url: baseUrl,
     siteName: 'sdhhf',
     locale: 'en_US',
@@ -57,7 +61,8 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+};
+
 
 const cx = (...classes: (string | undefined)[]) =>
   classes.filter(Boolean).join(' ')
