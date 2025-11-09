@@ -1,0 +1,103 @@
+<!doctype html>
+<head>
+  <meta name="view-transition" content="same-origin" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    defer=""
+    media="all"
+    onload="this.media='all'"
+    rel="stylesheet"
+    href="https://site-assets.fontawesome.com/releases/v7.1.0/css/fontawesome.css"
+  />
+  <link
+    defer=""
+    media="all"
+    onload="this.media='all'"
+    rel="stylesheet"
+    href="https://site-assets.fontawesome.com/releases/v7.1.0/css/whiteboard-semibold.css"
+  />
+</head>
+<body>
+  <div class="bg">
+    <div class="header">
+      <h1 class="name">music</h1>
+      <div id="navbar"></div>
+    </div>
+    <br />
+    <div class="content">
+      <div class="controls">
+        <label>
+          period:
+          <select id="period">
+            <option value="7day">7 days</option>
+            <option value="1month">1 month</option>
+            <option value="3month">3 months</option>
+            <option value="6month">6 months</option>
+            <option value="12month">12 months</option>
+            <option value="overall">overall</option>
+          </select>
+        </label>
+
+        <label>
+          rows:
+          <input type="number" id="rows" min="1" max="10" value="3" />
+        </label>
+
+        <label>
+          columns:
+          <input type="number" id="cols" min="1" max="10" value="3" />
+        </label>
+
+        <button id="load">load!</button>
+      </div>
+
+      <div class="collage"></div>
+      <div class="icon" style="padding-top: 5px">
+        <p style="font-size: 14px">
+          provided by
+          <strong
+            ><a
+              href="https://last.fm"
+              target="_blank"
+              style="font-size: 14px; text-decoration: underline"
+              >last.fm</a
+            ></strong
+          >
+        </p>
+
+        <i
+          class="fa-whiteboard fa-semibold fa-arrow-up-right-from-square"
+          style="font-size: 14px"
+        ></i>
+      </div>
+    </div>
+    <article class="wrapper">
+      <div class="marquee">
+        <div class="marquee__group">
+          <p>冬来りなば春遠からじ</p>
+          <p>努力は夢中に勝てない。</p>
+        </div>
+
+        <div aria-hidden="true" class="marquee__group">
+          <p>冬来りなば春遠からじ</p>
+          <p>努力は夢中に勝てない。</p>
+        </div>
+
+        <div aria-hidden="true" class="marquee__group">
+          <p>冬来りなば春遠からじ</p>
+          <p>努力は夢中に勝てない。</p>
+        </div>
+        <div aria-hidden="true" class="marquee__group">
+          <p>冬来りなば春遠からじ</p>
+          <p>努力は夢中に勝てない。</p>
+        </div>
+        <div aria-hidden="true" class="marquee__group">
+          <p>冬来りなば春遠からじ</p>
+          <p>努力は夢中に勝てない。</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  <script src="fm.js"></script>
+  <script src="main.js"></script>
+</body>
