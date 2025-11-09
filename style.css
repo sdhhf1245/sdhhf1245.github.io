@@ -94,13 +94,10 @@ p {
   width: calc(100vw - var(--inset) * 2 - 80px);
 }
 
-<<<<<<< HEAD
-=======
 .navbar {
   display: flex;
   gap: 10px;
 }
->>>>>>> 5d8d1e4 (epic)
 .activities {
   display: flex;
   flex-direction: column;
