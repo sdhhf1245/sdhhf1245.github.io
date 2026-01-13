@@ -276,7 +276,7 @@ export function ListeningActivity({ activity }: { activity: Activity }) {
       <a className="text-sm md:text-lg font-bold pb-2">{`${ActivityType[activity.type] ?? "Listening to"} ${activity.name}`}</a>
       <div className="flex space-x-3 md:space-x-4">
         {image && (
-          <Image
+          <img
             src={image}
             alt={activity.assets?.large_text ?? "Artwork"}
             width={192}
@@ -363,13 +363,12 @@ export function NormalActivity({ activity }: { activity: Activity }) {
                 </div>
               )}
 
-              <Image
+              <img
                 src={image}
                 alt={activity.assets?.large_text ?? activity.name ?? "Artwork"}
                 width={192}
                 height={192}
                 className="rounded-md z-10 w-full h-full"
-		unoptimized
               />
             </div>
 
@@ -388,7 +387,6 @@ export function NormalActivity({ activity }: { activity: Activity }) {
                     width={64}
                     height={64}
                     className="rounded-full w-full h-full"
-		    unoptimized
                   />
                 </div>
               </div>
