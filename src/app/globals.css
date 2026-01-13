@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-50: #eff1f5;
+  --foreground-100: #dfe3ec;
+  --foreground-200: #bfc7d9;
+  --foreground-300: #9fabc6;
+  --foreground-400: #8090b3;
+  --foreground-500: #60749f;
+  --foreground-600: #4d5d80;
+  --foreground-700: #394560;
+  --foreground-800: #262e40;
+  --foreground-900: #131720;
+  --foreground-950: #0a0c10;
+
+  --background-50: #f0f1f5;
+  --background-100: #e0e4eb;
+  --background-200: #c2c9d6;
+  --background-300: #a3adc2;
+  --background-400: #8592ad;
+  --background-500: #667799;
+  --background-600: #525f7a;
+  --background-700: #3d475c;
+  --background-800: #29303d;
+  --background-900: #14181f;
+  --background-950: #0a0c0f;
+
+  --primary-50: #e5e7ff;
+  --primary-100: #cccfff;
+  --primary-200: #99a0ff;
+  --primary-300: #6670ff;
+  --primary-400: #3341ff;
+  --primary-500: #0011ff;
+  --primary-600: #000ecc;
+  --primary-700: #000a99;
+  --primary-800: #000766;
+  --primary-900: #000333;
+  --primary-950: #00021a;
+
+  --secondary-50: #f0f1f5;
+  --secondary-100: #e1e2ea;
+  --secondary-200: #c2c6d6;
+  --secondary-300: #a4a9c1;
+  --secondary-400: #868dac;
+  --secondary-500: #677098;
+  --secondary-600: #535a79;
+  --secondary-700: #3e435b;
+  --secondary-800: #292d3d;
+  --secondary-900: #15161e;
+  --secondary-950: #0a0b0f;
+
+  --accent-50: #f0f1f4;
+  --accent-100: #e1e4ea;
+  --accent-200: #c3c9d5;
+  --accent-300: #a5adc0;
+  --accent-400: #8892aa;
+  --accent-500: #6a7795;
+  --accent-600: #555f77;
+  --accent-700: #3f475a;
+  --accent-800: #2a303c;
+  --accent-900: #15181e;
+  --accent-950: #0b0c0f;
+
+  /* --foreground: #d0d6e3; */
+  --foreground: #ffffff;
+  --background: #181c24;
+  --primary: #a6acff;
+  --secondary: #2d3142;
+  --accent: #20242d;
+}
+
+@theme {
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+}
+
+@keyframes scroll-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+
+@keyframes scroll-down {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
