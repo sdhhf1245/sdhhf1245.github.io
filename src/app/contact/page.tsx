@@ -67,7 +67,7 @@ export default function Contact() {
 
               <div className="flex gap-2 items-center text-4xl sm:text-3xl font-bold">
                 <SiRoblox className="text-primary" />
-                <a href="https://www.roblox.com/users/2927093836/profile" taret="_blank" className="text-primary">
+                <a href="https://www.roblox.com/users/2927093836/profile" target="_blank" className="text-primary">
                   sdhhf1245
                 </a>
               </div>
