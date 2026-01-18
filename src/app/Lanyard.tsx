@@ -155,19 +155,18 @@ export function ProfileCard({ discord }: { discord: any }) {
 
   const status = discord.discord_status || "offline";
   const bg: Record<string, string> = {
-  online: "bg-green-500",
-  idle: "bg-yellow-500",
-  dnd: "bg-red-500",
-  offline: "bg-gray-500",
-};
+    online: "bg-green-500",
+    idle: "bg-yellow-500",
+    dnd: "bg-red-500",
+    offline: "bg-gray-500",
+  };
 
-const text: Record<string, string> = {
-  online: "text-green-500",
-  idle: "text-yellow-500",
-  dnd: "text-red-500",
-  offline: "text-gray-500",
-};
-
+  const text: Record<string, string> = {
+    online: "text-green-500",
+    idle: "text-yellow-500",
+    dnd: "text-red-500",
+    offline: "text-gray-500",
+  };
 
   const badge = discord.discord_user?.primary_guild?.badge
     ? `https://cdn.discordapp.com/guild-tag-badges/${discord.discord_user?.primary_guild.identity_guild_id}/${discord.discord_user?.primary_guild.badge}.png`
@@ -189,7 +188,11 @@ const text: Record<string, string> = {
 
         <div className="flex flex-col justify-center flex-1 min-w-0">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <a className="text-xl md:text-2xl font-bold" target="_blank" href={`https://discord.com/users/${discord.discord_user.id}`}>
+            <a
+              className="text-xl md:text-2xl font-bold"
+              target="_blank"
+              href={`https://discord.com/users/${discord.discord_user.id}`}
+            >
               {discord.discord_user?.display_name ||
                 discord.discord_user?.username ||
                 "..."}
@@ -208,10 +211,18 @@ const text: Record<string, string> = {
                 </span>
               )}
             </div>
-	    {discord.active_on_discord_web && (<FaGlobeAmericas className={`${text[status]}`} />)}
-	    {discord.active_on_discord_desktop && (<FaDesktop className={`${text[status]}`} />)}
-	    {discord.active_on_discord_mobile && (<MdOutlinePhoneAndroid className={`${text[status]}`} />)}
-	    {discord.active_on_discord_embedded && (<IoLogoGameControllerB className={`${text[status]}`} />)}
+            {discord.active_on_discord_web && (
+              <FaGlobeAmericas className={`${text[status]}`} />
+            )}
+            {discord.active_on_discord_desktop && (
+              <FaDesktop className={`${text[status]}`} />
+            )}
+            {discord.active_on_discord_mobile && (
+              <MdOutlinePhoneAndroid className={`${text[status]}`} />
+            )}
+            {discord.active_on_discord_embedded && (
+              <IoLogoGameControllerB className={`${text[status]}`} />
+            )}
           </div>
           <span className="text-sm md:text-xl text-foreground/50">
             @{discord.discord_user?.username || "..."}
@@ -288,7 +299,16 @@ export function ListeningActivity({ activity }: { activity: Activity }) {
       className="bg-[var(--background-900)] z-10 flex flex-col p-3 md:p-4 rounded-xl border-1 border-secondary"
       data-activity-type="listening"
     >
-      <a className="text-sm md:text-lg font-bold pb-2">{`${ActivityType[activity.type] ?? "Listening to"} ${activity.name}`}</a>
+      <h1 className="flex justify-between items-center text-xl md:text-2xl font-bold pb-4">
+        {`${ActivityType[activity.type] ?? "Listening to"} ${activity.name}`}
+        <a href="https://github.com/Phineas/lanyard" target="_blank">
+          <img
+            src="https://storage.googleapis.com/lanyard/static/lanyardtemplogo.png"
+            className="ml-2 h-8 w-20 object-contain"
+          />
+        </a>
+      </h1>
+
       <div className="flex space-x-3 md:space-x-4">
         {image && (
           <img
@@ -365,9 +385,16 @@ export function NormalActivity({ activity }: { activity: Activity }) {
       className="bg-[var(--background-900)] z-10 flex flex-col p-3 md:p-4 rounded-xl border-1 border-secondary"
       data-activity-type="normal"
     >
-      <a className="text-sm md:text-lg font-bold pb-2">
+      <h1 className="flex justify-between items-center text-xl md:text-2xl font-bold pb-4">
         {`${ActivityType[activity.type] ?? "Playing"}`}
-      </a>
+        <a href="https://github.com/Phineas/lanyard" target="_blank">
+          <img
+            src="https://storage.googleapis.com/lanyard/static/lanyardtemplogo.png"
+            className="ml-2 h-8 w-20 object-contain"
+          />
+        </a>
+      </h1>
+
       <div className="flex items-center space-x-3 md:space-x-4">
         {image && (
           <div className="relative w-20 h-20 md:w-48 md:h-48 flex-shrink-0">

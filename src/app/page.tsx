@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import Lanyard from "./Lanyard";
+import Lastfm from "./fm";
 
 export default function Home() {
   const name = "sdhhf";
@@ -106,8 +107,9 @@ export default function Home() {
               {name}
             </h1>
           </div>
-          <div className="z-[100] pt-[16px] sm:pt-[20px] md:pt-[24px]">
+          <div className="z-[100] pt-[16px] sm:pt-[20px] md:pt-[24px] flex flex-col gap-2">
             <Lanyard />
+	    <Lastfm />
           </div>
         </main>
       </motion.div>

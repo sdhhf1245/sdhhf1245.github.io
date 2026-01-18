@@ -85,6 +85,14 @@ body {
   font-family: var(--font-inter);
 }
 
+.scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes scroll-up {
   from {
     transform: translateY(0);
