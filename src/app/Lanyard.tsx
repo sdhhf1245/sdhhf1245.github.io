@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { IoLogoGameControllerB } from "react-icons/io";
+import { MdOutlinePhoneAndroid } from "react-icons/md";
+import { FaDesktop } from "react-icons/fa6";
+import { FaGlobeAmericas } from "react-icons/fa";
 
 type Activity = {
   id: string;
@@ -151,12 +154,20 @@ export function ProfileCard({ discord }: { discord: any }) {
     : "https://picsum.photos/200";
 
   const status = discord.discord_status || "offline";
-  const colors: Record<string, string> = {
-    online: "bg-green-500",
-    idle: "bg-yellow-500",
-    dnd: "bg-red-500",
-    offline: "bg-gray-500",
-  };
+  const bg: Record<string, string> = {
+  online: "bg-green-500",
+  idle: "bg-yellow-500",
+  dnd: "bg-red-500",
+  offline: "bg-gray-500",
+};
+
+const text: Record<string, string> = {
+  online: "text-green-500",
+  idle: "text-yellow-500",
+  dnd: "text-red-500",
+  offline: "text-gray-500",
+};
+
 
   const badge = discord.discord_user?.primary_guild?.badge
     ? `https://cdn.discordapp.com/guild-tag-badges/${discord.discord_user?.primary_guild.identity_guild_id}/${discord.discord_user?.primary_guild.badge}.png`
@@ -172,17 +183,17 @@ export function ProfileCard({ discord }: { discord: any }) {
             className="rounded-full w-full h-full object-cover"
           />
           <div
-            className={`absolute bottom-0 right-0 w-3 h-3 md:w-5 md:h-5 ${colors[status]} rounded-full border-2 animate-ping border-[var(--background-900)]`}
+            className={`absolute bottom-0 right-0 w-3 h-3 md:w-5 md:h-5 ${bg[status]} rounded-full border-2 animate-ping border-[var(--background-900)]`}
           ></div>
         </div>
 
         <div className="flex flex-col justify-center flex-1 min-w-0">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xl md:text-2xl font-bold">
+            <a className="text-xl md:text-2xl font-bold" target="_blank" href={`https://discord.com/users/${discord.discord_user.id}`}>
               {discord.discord_user?.display_name ||
                 discord.discord_user?.username ||
                 "..."}
-            </span>
+            </a>
             <div className="rounded border border-secondary/50 flex items-center gap-1 px-1">
               {badge && (
                 <img
@@ -197,9 +208,13 @@ export function ProfileCard({ discord }: { discord: any }) {
                 </span>
               )}
             </div>
+	    {discord.active_on_discord_web && (<FaGlobeAmericas className={`${text[status]}`} />)}
+	    {discord.active_on_discord_desktop && (<FaDesktop className={`${text[status]}`} />)}
+	    {discord.active_on_discord_mobile && (<MdOutlinePhoneAndroid className={`${text[status]}`} />)}
+	    {discord.active_on_discord_embedded && (<IoLogoGameControllerB className={`${text[status]}`} />)}
           </div>
-          <span className="text-sm md:text-xl text-[var(--text)]/80">
-            {discord.discord_user?.username || "..."}
+          <span className="text-sm md:text-xl text-foreground/50">
+            @{discord.discord_user?.username || "..."}
           </span>
         </div>
       </div>
@@ -381,7 +396,7 @@ export function NormalActivity({ activity }: { activity: Activity }) {
                 )}
 
                 <div className="w-8 h-8 md:w-16 md:h-16 bg-[var(--background-900)] rounded-full p-0.5 md:p-1">
-                  <Image
+                  <img
                     src={small_image}
                     alt={activity.assets?.small_text ?? "Status"}
                     width={64}

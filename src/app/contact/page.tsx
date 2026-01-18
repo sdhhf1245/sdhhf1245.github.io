@@ -53,22 +53,22 @@ export default function Contact() {
             <div className="flex flex-col gap-3">
               <div className="flex gap-2 items-center text-4xl sm:text-3xl font-bold">
                 <FaDiscord className="text-primary" />
-                <a href="https://discord.com/users/1059614915456938084" className="text-primary">
+                <a href="https://discord.com/users/1059614915456938084" target="_blank" className="text-primary">
                   sdhhf
                 </a>
               </div>
 
               <div className="flex gap-2 items-center text-4xl sm:text-3xl font-bold">
                 <FaGithub className="text-primary" />
-                <a href="https://github.com/sdhhf1245" className="text-primary"> 
-                  sdhhf
+                <a href="https://github.com/sdhhf1245" target="_blank" className="text-primary"> 
+                  sdhhf1245
                 </a>
               </div>
 
               <div className="flex gap-2 items-center text-4xl sm:text-3xl font-bold">
                 <SiRoblox className="text-primary" />
-                <a href="https://www.roblox.com/users/2927093836/profile" className="text-primary">
-                  sdhhf
+                <a href="https://www.roblox.com/users/2927093836/profile" taret="_blank" className="text-primary">
+                  sdhhf1245
                 </a>
               </div>
             </div>
