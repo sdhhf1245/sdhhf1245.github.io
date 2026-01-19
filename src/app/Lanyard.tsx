@@ -85,6 +85,14 @@ export default function Lanyard() {
   const heartbeatref = useRef<NodeJS.Timeout | null>(null);
   const [activities, setactivities] = useState<Activity[]>([]);
   const [discord, setdiscord] = useState<any>(null);
+  const [profile, setprofile] = useState<any>(null);
+
+  useEffect(() => {
+    fetch("https://dcdn.dstn.to/profile/1059614915456938084")
+      .then((res) => res.json())
+      .then((data) => setprofile(data))
+      .catch(console.error);
+  }, []);
 
   useEffect(() => {
     const socket = new WebSocket("wss://api.lanyard.rest/socket");
@@ -141,14 +149,20 @@ export default function Lanyard() {
       </div>
       {discord && (
         <div className="lg:w-[400px] flex-shrink-0">
-          <ProfileCard discord={discord} />
+          <ProfileCard discord={discord} profile={profile} />
         </div>
       )}
     </div>
   );
 }
 
-export function ProfileCard({ discord }: { discord: any }) {
+export function ProfileCard({
+  discord,
+  profile,
+}: {
+  discord: any;
+  profile: any;
+}) {
   const av = discord.discord_user?.avatar
     ? `https://cdn.discordapp.com/avatars/${discord.discord_user.id}/${discord.discord_user.avatar}.png?size=256`
     : "https://picsum.photos/200";
@@ -168,9 +182,11 @@ export function ProfileCard({ discord }: { discord: any }) {
     offline: "text-gray-500",
   };
 
-  const badge = discord.discord_user?.primary_guild?.badge
+  const guild = discord.discord_user?.primary_guild?.badge
     ? `https://cdn.discordapp.com/guild-tag-badges/${discord.discord_user?.primary_guild.identity_guild_id}/${discord.discord_user?.primary_guild.badge}.png`
     : null;
+
+  const badges = profile?.badges ?? [];
 
   return (
     <div className="bg-[var(--background-900)] z-10 flex flex-col p-3 md:p-4 rounded-xl border-1 border-secondary h-full">
@@ -198,9 +214,9 @@ export function ProfileCard({ discord }: { discord: any }) {
                 "..."}
             </a>
             <div className="rounded border border-secondary/50 flex items-center gap-1 px-1">
-              {badge && (
+              {guild && (
                 <img
-                  src={badge}
+                  src={guild}
                   alt="Guild "
                   className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0"
                 />
@@ -211,6 +227,16 @@ export function ProfileCard({ discord }: { discord: any }) {
                 </span>
               )}
             </div>
+
+            {badges.map((b: any) => (
+              <img
+                key={b.id}
+                src={`https://cdn.discordapp.com/badge-icons/${b.icon}.png`}
+                title={b.description}
+                className="w-4 h-4 md:w-5 md:h-5"
+              />
+            ))}
+
             {discord.active_on_discord_web && (
               <FaGlobeAmericas className={`${text[status]}`} />
             )}
